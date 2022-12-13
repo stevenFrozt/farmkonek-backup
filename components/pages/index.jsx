@@ -1,17 +1,26 @@
-export default function Home() {
-  return (
-    <div className="flex justify-center mt-20 flex-col items-center gap-10">
-      <h1 className="text-3xl font-bold text-center">
-        Hello Developers!
-      </h1>
-      <p className="text-xl" >
-       This page is the compiled finished UI COMPONENTS and Functional Components.
-       Please put the following: <br/>
-       1.) Name of the component <br/>
-       2.) The Component <br/>
-       3.) The list of its variants
-      </p>
-    </div>
+import ButtonsDesign from "component/designSystem/ButtonsDesign";
+import InputFieldsDesign from "component/designSystem/InputFieldsDesign";
+import ModalDesign from "component/designSystem/ModalDesign";
+import TableDesign from "component/designSystem/TableDesign";
+import Button from "component/UI/Button/Button";
+import SummaryCard from "component/UI/Cards/SummaryCard";
+import SearchField from "component/UI/SearchField";
+import SelectField from "component/UI/SelectField";
+import TextArea from "component/UI/TextArea";
+import TextField from "component/UI/TextField";
+import { useState } from "react";
+import { RiEyeLine, RiEyeOffLine } from "react-icons/ri";
 
-  )
+export default function Home() {
+  const [selected, setSelected] = useState();
+  return (
+    <div className="p-10">
+      <div className="flex flex-col gap-10">
+        <ButtonsDesign />
+        <InputFieldsDesign />
+        <ModalDesign />
+        <TableDesign />
+      </div>
+    </div>
+  );
 }
