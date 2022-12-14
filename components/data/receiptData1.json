@@ -1,0 +1,49 @@
+[
+  {
+    "customerID": "000259",
+    "customerName": "Flemming Fedder",
+    "qoutationNumber": "0000214",
+    "customerAddress": "38 Ludington Parkway",
+    "contactNumber": "242-484-6852",
+    "preparedBy": "Gilda Hairsnape",
+    "Date": "5/16/2022",
+    "validDate": "1/25/2022",
+    "orders": [
+      {
+        "Product": "Water - Mineral, Natural",
+        "Variety": "Green",
+        "Volume": 53,
+        "Unit": "org",
+        "Amount": 90
+      },
+      {
+        "Product": "Onions - Red Pearl",
+        "Variety": "Teal",
+        "Volume": 25,
+        "Unit": "org",
+        "Amount": 95
+      },
+      {
+        "Product": "Longos - Cheese Tortellini",
+        "Variety": "Crimson",
+        "Volume": 36,
+        "Unit": "mil",
+        "Amount": 23
+      },
+      {
+        "Product": "Wine - Manischewitz Concord",
+        "Variety": "Maroon",
+        "Volume": 89,
+        "Unit": "info",
+        "Amount": 44
+      },
+      {
+        "Product": "Bagelers - Cinn / Brown Sugar",
+        "Variety": "Goldenrod",
+        "Volume": 40,
+        "Unit": "gov",
+        "Amount": 80
+      }
+    ]
+  }
+]

@@ -8,8 +8,10 @@ import SearchField from "component/UI/SearchField";
 import SelectField from "component/UI/SelectField";
 import TextArea from "component/UI/TextArea";
 import TextField from "component/UI/TextField";
+import Receipt from "component/UI/Receipt";
 import { useState } from "react";
 import { RiEyeLine, RiEyeOffLine } from "react-icons/ri";
+import receiptData from "../data/receiptData1.json";
 
 export default function Home() {
   const [selected, setSelected] = useState();
@@ -20,6 +22,7 @@ export default function Home() {
         <InputFieldsDesign />
         <ModalDesign />
         <TableDesign />
+        <Receipt data={receiptData[0]} />
       </div>
     </div>
   );

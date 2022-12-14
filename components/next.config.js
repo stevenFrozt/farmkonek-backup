@@ -2,13 +2,15 @@
 const nextConfig = {
   reactStrictMode: true,
   webpack5: true, // Need to make it true for some versions of Next JS
-  distDir: "build", // Defined build directory
+  distDir: "build",
+  // Defined build directory
   webpack: (config, options) => {
+    config.experiments = { ...config.experiments, ...{ topLevelAwait: true } };
     // webpack configurations
     config.plugins.push(
       new options.webpack.container.ModuleFederationPlugin({
         name: "fe1",
-        filename: "mainComponent.js", // remote file name which will used later
+        filename: "remoteEntry.js", // remote file name which will used later
         remoteType: "var",
         exposes: {
           // expose all component here.
@@ -27,6 +29,7 @@ const nextConfig = {
           "./SelectField": "./component/UI/SelectField.jsx",
           "./UploadButton": "./component/UI/UploadButton.jsx",
         },
+
         shared: [
           {
             react: {
