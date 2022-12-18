@@ -19,10 +19,18 @@ export default function Home() {
     <div className="p-10">
       <div className="flex flex-col gap-10">
         <ButtonsDesign />
+
         <InputFieldsDesign />
         <ModalDesign />
         <TableDesign />
         <Receipt data={receiptData[0]} />
+        <SelectField
+          size={"lg"}
+          data={["hello", "world"]}
+          label="product"
+          selected="Food"
+          fullWidth={false}
+        />
       </div>
     </div>
   );
