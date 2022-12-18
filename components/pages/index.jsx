@@ -4,6 +4,7 @@ import ButtonsDesign from "component/designSystem/ButtonsDesign";
 import InputFieldsDesign from "component/designSystem/InputFieldsDesign";
 import ModalDesign from "component/designSystem/ModalDesign";
 import TableDesign from "component/designSystem/TableDesign";
+
 import SelectFieldDesign from "component/designSystem/SelectFieldDesign";
 
 export default function Home() {
@@ -14,6 +15,7 @@ export default function Home() {
         <InputFieldsDesign />
         <ModalDesign />
         <TableDesign />
+
         <SelectFieldDesign />
         <Receipt data={receiptData[0]} />
       </div>
