@@ -36,9 +36,9 @@ export default Button;
 
 const ButtonSize = (size = "default") =>
   ({
-    default: "text-base px-8 py-2.5 rounded-lg",
-    sm: "text-sm px-6 py-2 rounded-md",
-    lg: "text-lg px-10 py-2.5 rounded-lg",
+    default: "text-base px-8 py-2.5 rounded-lg min-h-[2.875rem]",
+    sm: "text-sm px-6 py-2 rounded-md min-h-[2.375rem]",
+    lg: "text-lg px-10 py-2.5 rounded-lg min-h-[3.125rem]",
   }[size]);
 
 const VariantDefault = (variant = "default", color = "default") => {
