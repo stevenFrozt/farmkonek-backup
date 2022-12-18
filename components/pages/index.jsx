@@ -20,6 +20,26 @@ export default function Home() {
         <InputFieldsDesign />
         <ModalDesign />
         <TableDesign />
+
+        <div className="flex">
+          <SelectField
+            data={["Hello", "hi"]}
+            selected={selected}
+            setSelected={setSelected}
+          />
+        </div>
+        <SelectField
+          data={["Hello", "hi"]}
+          selected={selected}
+          setSelected={setSelected}
+          size="sm"
+        />
+        <SelectField
+          data={["Hello", "hi"]}
+          selected={selected}
+          setSelected={setSelected}
+          size="lg"
+        />
       </div>
     </div>
   );

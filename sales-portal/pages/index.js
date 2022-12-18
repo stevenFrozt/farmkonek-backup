@@ -1,4 +1,4 @@
-const Button = (await import("components/button")).default;
+const Button = (await import("components/UI/Button/button")).default;
 
 export default function Home() {
   return (

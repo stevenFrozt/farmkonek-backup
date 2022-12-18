@@ -5,7 +5,7 @@ import Label from "./Label";
 import styled from "styled-components";
 
 const SelectField = ({
-  fullWidth,
+  fullWidth = false,
   size,
   data = [],
   objKey = "",
@@ -58,7 +58,7 @@ const SelectField = ({
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
-            <Listbox.Options className="absolute z-20 mt-2 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+            <Listbox.Options className="absolute z-20 mt-2 max-h-60 max-w-max overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
               {data?.map((value, valueIdx) => (
                 <Listbox.Option
                   key={valueIdx}
@@ -118,9 +118,9 @@ const TextSize = (size = "default") =>
 
 const SelectSize = (size = "default") =>
   ({
-    default: "pl-4 py-2.5 pr-10 rounded-md",
-    sm: "pl-3.5 py-2 pr-10 rounded-md",
-    lg: "pl-4 py-2.5 pr-10 text-lg rounded-md",
+    default: "pl-4 py-2.5 pr-10 rounded-md min-h-[2.875rem]",
+    sm: "pl-3.5 py-2 pr-10 rounded-md min-h-[2.375rem]",
+    lg: "pl-4 py-2.5 pr-10 text-lg rounded-md min-h-[3.125rem]",
   }[size]);
 
 const OptionSize = (size = "default") =>
@@ -144,6 +144,5 @@ const setWidthBasedOnLength = (array, objKey = "") => {
       longestWord = word;
     }
   });
-  console.log({ longestWord });
   return `${(longestWord.length * 9) / 16}`;
 };
