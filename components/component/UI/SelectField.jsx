@@ -24,11 +24,13 @@ const SelectField = ({
         <div className="relative mt-1">
           {data.length >= 1 ? (
             <Listbox.Button
-              className={`relative  cursor-default bg-white text-left border border-gray-300 focus:border-primary-600 focus:outline-none  ${SelectSize(
+              className={`relative ${
+                fullWidth && "w-full"
+              } cursor-default bg-white text-left border border-gray-300 focus:border-primary-600 focus:outline-none  ${SelectSize(
                 size
               )}`}
             >
-              <SelectBox minWidth={getWidth}>
+              <SelectBox minWidth={getWidth} fullWidth={fullWidth}>
                 {objKey !== "" ? (
                   <span className="block truncate">{selected[objKey]}</span>
                 ) : (
@@ -58,7 +60,11 @@ const SelectField = ({
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
-            <Listbox.Options className="absolute z-20 mt-2 max-h-60 max-w-max overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+            <Listbox.Options
+              className={`absolute z-20 mt-2 max-h-60 ${
+                fullWidth ? "w-full" : "max-w-max"
+              } overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none`}
+            >
               {data?.map((value, valueIdx) => (
                 <Listbox.Option
                   key={valueIdx}
@@ -131,7 +137,7 @@ const OptionSize = (size = "default") =>
   }[size]);
 
 const SelectBox = styled.div`
-  width: ${(props) => props.minWidth && `${props.minWidth}rem`};
+  width: ${(props) => (props.fullWidth ? "100%" : `${props.minWidth}rem`)};
 `;
 
 const setWidthBasedOnLength = (array, objKey = "") => {
