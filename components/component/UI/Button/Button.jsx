@@ -67,7 +67,7 @@ const ColorDefault = (color = "default") => {
     case "gray":
       return "bg-gray-700 hover:bg-gray-800 active:bg-gray-900 text-white";
     case "red":
-      return "bg-persimmon-500 hover:bg-persimmon-600 active:bg-persimmon-700 text-white";
+      return "bg-warning-500 hover:bg-warning-600 active:bg-warning-700 text-white";
     default:
       break;
   }
@@ -83,7 +83,7 @@ const ColorOutlined = (color = "default") => {
     case "gray":
       return "border-gray-500 bg-white hover:border-gray-600 hover:bg-gray-600 active:border-gray-700 active:bg-gray-700 text-gray-500 hover:text-white active:text-white";
     case "red":
-      return "border-persimmon-500 bg-white hover:border-persimmon-600 hover:bg-persimmon-600 active:border-persimmon-700 active:bg-persimmon-700 text-persimmon-500 hover:text-white active:text-white";
+      return "border-warning-500 bg-white hover:border-warning-600 hover:bg-warning-600 active:border-warning-700 active:bg-warning-700 text-warning-500 hover:text-white active:text-white";
     default:
       break;
   }
@@ -98,9 +98,9 @@ const ColorLight = (color = "default") => {
     case "yellow":
       return "border-none bg-tertiary-50 hover:bg-tertiary-100 active:bg-tertiary-200 text-tertiary-600";
     case "gray":
-      return "border-none bg-gray-200 hover:bg-gray-300 active:bg-gray-400 text-[#242424]";
+      return "border-none bg-gray-200 hover:bg-gray-300 active:bg-gray-400 text-neutral-400";
     case "red":
-      return "border-none bg-persimmon-200 hover:bg-persimmon-200 active:bg-persimmon-300 text-persimmon-600";
+      return "border-none bg-warning-200 hover:bg-warning-200 active:bg-warning-300 text-warning-600";
     default:
       break;
   }
@@ -115,9 +115,9 @@ const ColorSubtle = (color = "default") => {
     case "yellow":
       return "border-white bg-white text-tertiary-400 hover:text-tertiary-500 active:text-tertiary-600";
     case "red":
-      return "border-white bg-white text-persimmon-400 hover:text-persimmon-500 active:text-persimmon-600";
+      return "border-white bg-white text-warning-400 hover:text-warning-500 active:text-warning-600";
     case "gray":
-      return "border-white bg-white text-[#242424] hover:text-[#242424] active:text-[#242424]";
+      return "border-white bg-white text-neutral-400 hover:text-neutral-400 active:text-neutral-400";
     default:
       break;
   }

@@ -4,10 +4,10 @@ import ModalDesign from "component/designSystem/ModalDesign";
 import TableDesign from "component/designSystem/TableDesign";
 import { useState } from "react";
 import SelectFieldDesign from "component/designSystem/SelectFieldDesign";
-
+import MainLayout from "component/layout/MainLayout";
 export default function Home() {
   return (
-    <div className="p-10">
+    <MainLayout>
       <div className="flex flex-col gap-10">
         <ButtonsDesign />
         <InputFieldsDesign />
@@ -15,6 +15,6 @@ export default function Home() {
         <TableDesign />
         <SelectFieldDesign />
       </div>
-    </div>
+    </MainLayout>
   );
 }

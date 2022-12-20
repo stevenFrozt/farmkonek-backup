@@ -46,9 +46,9 @@ const CardColor = (size = "default") =>
       "bg-tertiary-700",
     ],
     red: [
-      "bg-persimmon-500",
-      "bg-persimmon-400",
-      "bg-persimmon-600",
-      "bg-persimmon-700",
+      "bg-warning-500",
+      "bg-warning-400",
+      "bg-warning-600",
+      "bg-warning-700",
     ],
   }[size]);
