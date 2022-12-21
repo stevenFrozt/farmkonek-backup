@@ -56,7 +56,7 @@ module.exports = {
           800: "#9A9090",
           900: "#7E7373",
         },
-        persimmon: {
+        warning: {
           DEFAULT: "#FF5656",
           50: "#FFFFFF",
           100: "#FFF9F9",
@@ -69,7 +69,7 @@ module.exports = {
           800: "#AD0000",
           900: "#750000",
         },
-        "mine-shaft": {
+        neutral: {
           DEFAULT: "#242424",
           50: "#808080",
           100: "#767676",
