@@ -10,7 +10,7 @@ import moment from "moment";
 
 export default function Receipt({ data }) {
   return (
-    <div className="border-2 border-primary px-14 pt-8 pb-2">
+    <div className="border-2 border-primary px-14 pt-8 pb-2 bg-white">
       {/* HEADER */}
       <div>
         {/* LOGO AND CUSTOMER ID */}

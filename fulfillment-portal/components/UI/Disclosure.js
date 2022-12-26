@@ -3,28 +3,67 @@ import { AiOutlineMinusSquare, AiOutlinePlusSquare } from "react-icons/ai"
 import Button from "./Button/Button"
 import useToggle from "/hooks/useToggle"
 
-export default function Disclosure({ selectAll, collapseAll, setSelectAll }) {
+export default function Disclosure({
+  handleClick,
+  isCheck,
+  id,
+  productName,
+  tagalogName,
+  variety,
+  volume,
+  unit,
+  dateNeeded,
+  note,
+  isExpandAll,
+  setIsExpandAll,
+  setIsOpen,
+  isOpen,
+  orderLength
+}) {
   const [show, toggle] = useState(true)
-  const [checkbox, setCheckbox] = useState(false)
 
   useEffect(() => {
-    if (collapseAll) {
-      toggle(prev => false)
+    if (isExpandAll) {
+      if (!isOpen.length) {
+        setIsOpen(prev => [...prev, id])
+        toggle(() => true)
+      }
+      toggle(() => true)
     } else {
-      toggle(prev => true)
+      toggle(() => false)
+      setIsOpen([])
     }
-  }, [collapseAll])
+  }, [isExpandAll])
+
+  /**
+   *  COLLAPSE HANDLER
+   */
+  function collapseHandler() {
+    if (isOpen.includes(id)) {
+      setIsOpen(prev => prev.filter(i => i !== id))
+      if (isOpen.length == 1) {
+        setIsExpandAll(false)
+      }
+    } else {
+      setIsOpen(prev => [...prev, id])
+      if (isOpen.length == orderLength - 1) {
+        setIsExpandAll(true)
+      }
+    }
+    toggle(prev => !prev)
+  }
+
   return (
-    <div className="bg-secondary-100/40 px-1  rounded-sm my-4">
+    <div
+      className={`bg-secondary-100/40 px-1  rounded-sm ${show ? "" : "my-3"} `}
+    >
       <div className="flex items-center gap-2 py-1">
         <input
           type="checkbox"
-          id="selectAll"
+          id={id}
           className="cursor-pointer self-start mt-2"
-          checked={selectAll ? selectAll : checkbox}
-          onChange={() => {
-            selectAll ? setSelectAll(prev => !prev) : setCheckbox(prev => !prev)
-          }}
+          checked={isCheck}
+          onChange={handleClick}
         />
         <div className={show ? "grid grid-cols-5 text-gray-500" : ""}>
           {show ? (
@@ -36,10 +75,10 @@ export default function Disclosure({ selectAll, collapseAll, setSelectAll }) {
               <div>Date neeeded</div>
             </>
           ) : (
-            "Squash (Kalabasa) / any / 20kg / Dec 3, 2022 "
+            `${productName} (${tagalogName}) / ${variety} / ${volume} / ${unit} / ${dateNeeded}`
           )}
         </div>
-        <button className="ml-auto" onClick={() => toggle(prev => !prev)}>
+        <button className="ml-auto" id={id} onClick={collapseHandler}>
           {show ? <AiOutlineMinusSquare /> : <AiOutlinePlusSquare />}
         </button>
       </div>
@@ -48,37 +87,43 @@ export default function Disclosure({ selectAll, collapseAll, setSelectAll }) {
         {/* Items */}
         <div className="flex items-center gap-2 py-2">
           <input type="checkbox" id="selectAll" className="invisible" />
-          <div className="grid grid-cols-5">
-            <div className="text-black">Product</div>
-            <div className="text-black">Variety</div>
-            <div className="text-black">Volume</div>
-            <div className="text-black">Unit</div>
-            <div className="text-black">Date neeeded</div>
+          <div className="grid grid-cols-5  min-w-[494px]">
+            <div className="text-black">{productName}</div>
+            <div className="text-black">{variety}</div>
+            <div className="text-black">{volume}</div>
+            <div className="text-black">{unit}</div>
+            <div className="text-black">{dateNeeded}</div>
           </div>
-          <button className="invisible">
+          <button className="invisible ml-auto">
             <AiOutlineMinusSquare />
           </button>
         </div>
 
         <div className="flex py-1 my-4 justify-between">
           {/* note */}
-          <div>
-            <h3 className="text-gray-500 pl-5">Note</h3>
-            <p className="bg-red-400/90 px-4 py-1 rounded-md text-white max-w-1/2 text-sm">
-              Remarks: Denied due to no available crops
-            </p>
+          <div className="py-1">
+            {note ? (
+              <>
+                <h3 className="text-gray-500 pl-5">Note</h3>
+                <p className="bg-red-400/90 px-4 py-1 rounded-md text-white max-w-1/2 text-sm">
+                  Remarks: {note}
+                </p>
+              </>
+            ) : (
+              ""
+            )}
           </div>
           {/* action buttons */}
-          <div className="flex self-end gap-1 ">
+          <div className="flex self-end gap-1 py-1">
             <Button
-              size="sm"
+              size="xs"
               variant="subtle"
               color="gray"
               className="bg-transparent border-none"
             >
               Deny Order
             </Button>
-            <Button size="sm" className="border-none">
+            <Button size="xs" className="border-none">
               Accept Order
             </Button>
           </div>
